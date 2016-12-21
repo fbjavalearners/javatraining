@@ -8,6 +8,12 @@ package com.demo.accessmodifiers;
  *   you need to add import statement first and then use it
  * 
  * 
+ * 4 types of access modifier for instance variables and methods
+ * a)private -- Accessible only with in the class
+ * b)public -- Accessible from anywhere
+ * c)default -- Accessible only with in package
+ * d)protected -- Accessible with in package plus child subclasses in other packages
+ * can access the class through inheritance.
  * 
  * 
  */
