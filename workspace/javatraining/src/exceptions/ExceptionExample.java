@@ -2,7 +2,24 @@ package exceptions;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-
+/**
+ * Root class of exceptions is throwable
+ * There are 2 types of classes of exceptions under Throwable 
+ * a)Error class (These are generally not handled like memory completed like that )
+ * b)Exception class
+ *     It is further divided in to 2 types
+ *       b1)Checked exceptions
+ *           For checked exceptions you need to add try catch block or
+ *           you need to declare the exception in throws clause
+ *           Examples: FileNotFoundException,JdbcException
+ *           
+ *       b2)Runtime or unchecked exceptions
+ *           These are checked at run time and compiler won't force you
+ *           to write try catch or to declare throws clause 
+ *             Examples: NullPointerException,ArrayStoreException
+ * @author Rishitha
+ *
+ */
 public class ExceptionExample {
 
 	
@@ -13,7 +30,7 @@ public class ExceptionExample {
 		 ExceptionExample e = new ExceptionExample();
 		e.test1();
 	 }catch(Exception fe ){
-		 System.out.println("File couldn't be opened please check if file exists ");
+		 fe.printStackTrace();
 	 }
 	 System.out.println("End of main method ");	
 	}
