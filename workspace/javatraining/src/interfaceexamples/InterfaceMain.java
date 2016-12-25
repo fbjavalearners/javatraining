@@ -1,5 +1,14 @@
 package interfaceexamples;
 
+/*
+ *  By default methods in interface are public and abstract
+ *  By deault variables defined in interface are public static final
+ *  you can add default or public modifier to interface
+ *  eg public interface 
+ * 
+ * 
+ */
+
 public class InterfaceMain {
 
 	public static void main(String args[]){
