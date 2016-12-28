@@ -1,6 +1,6 @@
 package com.demo.accessmodifiers;
 
-public class Student {
+public class Student implements Comparable{
 
 	int sid;
 	String name;
@@ -10,6 +10,12 @@ public class Student {
 		this.sid = sid;
 		this.name = name;
 		this.myFullName = myFullName;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [sid=" + sid + ", name=" + name + ", myFullName="
+				+ myFullName + "]";
 	}
 
 	public String getMyFullName() {
@@ -71,6 +77,17 @@ public class Student {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	@Override
+	public int compareTo(Object arg0) {
+		
+		Student s = (Student)arg0;
+		
+		return this.sid-s.sid;
+		
+		
+		
 	}
 	
 	
