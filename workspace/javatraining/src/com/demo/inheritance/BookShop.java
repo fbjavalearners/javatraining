@@ -2,7 +2,7 @@ package com.demo.inheritance;
 
 public class BookShop extends Shop{
 
-	 BookShop(){
+	 public BookShop(){
 		super();
 		System.out.println("I am in Bookshop constructor ");
 		
