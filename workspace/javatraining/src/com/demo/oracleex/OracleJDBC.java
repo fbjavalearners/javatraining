@@ -12,7 +12,7 @@ public class OracleJDBC {
 
 		System.out.println("-------- Oracle JDBC Connection Testing ------");
 
-		try {
+		try {   
 
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
