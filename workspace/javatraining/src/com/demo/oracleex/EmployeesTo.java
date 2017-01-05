@@ -1,6 +1,6 @@
 package com.demo.oracleex;
 
-public class EmployeesTo {
+public class EmployeesTo { 
     private int employeeId;
     private String firstName;
     private String lastName;

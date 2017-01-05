@@ -7,7 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmployeDAOImpl implements EmployeeDAO{
+public class EmployeDAOImpl implements EmployeeDAO{ 
 
 	@Override
 	public List<EmployeesTo> getEmployees() throws EmployeesNotFoundException {

@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 public class ConnectionUtil {
 
-	public static Connection getConnection() throws SQLException{
+	public static Connection getConnection() throws SQLException{ 
 		
 		Connection connection = null;
 		try {
