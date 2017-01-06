@@ -12,7 +12,9 @@ public class EmployeeMain {
 		   System.out.println(emp);
 	   }
 	   
+	   EmployeesTo emp = new EmployeesTo(400,"Test","Four","abcdef@gmail.com","123456789","19-OCT-1984","IT_PROG",10000.00,0,205,140);
 	   
+	   empDao.addEmployee(emp);
 	   
    }
 	

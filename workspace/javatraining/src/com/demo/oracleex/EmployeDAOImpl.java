@@ -53,4 +53,38 @@ public class EmployeDAOImpl implements EmployeeDAO{
 	     return empList;
 	
       }
+
+	@Override
+	public int addEmployee(EmployeesTo emp) {
+		// TODO Auto-generated method stub
+		Connection con = null;
+		Statement  empSt = null;
+        int count=0;
+	
+		try{
+				
+			   con=ConnectionUtil.getConnection();
+		       String empQuery = "insert into employees values ("+emp.getEmployeeId()+",'"+emp.getFirstName()+"','"+emp.getLastName()+"','"+emp.getEmail()+"','"+emp.getPhoneNumber()+"',sysdate,'"+emp.getJobId()+"',"+emp.getSalary()+",null,"+
+		    		   " "+emp.getManagerId()+","+emp.getDepartmentId()+")";
+		       empSt = con.createStatement();
+		       count = empSt.executeUpdate(empQuery);
+		      
+		       
+		
+		}catch(SQLException sqe ){
+			 sqe.printStackTrace();
+			 System.out.println("Exception in getEmpList:: "+sqe.getMessage());
+		}finally{
+			 if(con !=null ){
+				 try {
+					con.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			 }
+		 }
+	
+	     return count;
+	}
 }

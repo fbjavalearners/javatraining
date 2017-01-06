@@ -2,9 +2,8 @@ package com.demo.oracleex;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.Properties;
 
 public class ConnectionUtil {
 
@@ -12,10 +11,10 @@ public class ConnectionUtil {
 		
 		Connection connection = null;
 		try {
-
+            Properties prop = PropertyUtil.getProperties();
 			connection = DriverManager.getConnection(
-					"jdbc:oracle:thin:@localhost:1521:xe", "hr",
-					"hr");
+					prop.getProperty("url"), prop.getProperty("username"),
+					prop.getProperty("password"));
 
 		} catch (SQLException e) {
 
