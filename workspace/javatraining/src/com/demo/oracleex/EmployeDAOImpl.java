@@ -1,6 +1,7 @@
 package com.demo.oracleex;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -10,7 +11,7 @@ import java.util.List;
 public class EmployeDAOImpl implements EmployeeDAO{ 
 
 	@Override
-	public List<EmployeesTo> getEmployees() throws EmployeesNotFoundException {
+	public List<EmployeesTo> getEmployees(String firstName) throws EmployeesNotFoundException {
 		// TODO Auto-generated method stub
 		
 		Connection con = null;
@@ -21,7 +22,8 @@ public class EmployeDAOImpl implements EmployeeDAO{
 				
 			   con=ConnectionUtil.getConnection();
 		       String empQuery = "SELECT employee_id,first_name,last_name,email,phone_number "+
-		                      " FROM employees ";
+		                      " FROM employees WHERE first_name='"+firstName+"'";
+		       System.out.println(empQuery);
 		       empSt = con.createStatement();
 		       rs = empSt.executeQuery(empQuery);
 		       while(rs.next()){
@@ -64,10 +66,13 @@ public class EmployeDAOImpl implements EmployeeDAO{
 		try{
 				
 			   con=ConnectionUtil.getConnection();
-		       String empQuery = "insert into employees values ("+emp.getEmployeeId()+",'"+emp.getFirstName()+"','"+emp.getLastName()+"','"+emp.getEmail()+"','"+emp.getPhoneNumber()+"',sysdate,'"+emp.getJobId()+"',"+emp.getSalary()+",null,"+
+		       /*
+			   String empQuery = "insert into employees values ("+emp.getEmployeeId()+",'"+emp.getFirstName()+"','"+emp.getLastName()+"','"+emp.getEmail()+"','"+emp.getPhoneNumber()+"',sysdate,'"+emp.getJobId()+"',"+emp.getSalary()+",null,"+
 		    		   " "+emp.getManagerId()+","+emp.getDepartmentId()+")";
 		       empSt = con.createStatement();
-		       count = empSt.executeUpdate(empQuery);
+		       count = empSt.executeUpdate(empQuery);*/
+			   
+			  
 		      
 		       
 		
@@ -86,5 +91,37 @@ public class EmployeDAOImpl implements EmployeeDAO{
 		 }
 	
 	     return count;
+	}
+
+	@Override
+	public int deleteEmployee(int empId) {
+		Connection con = null;
+		PreparedStatement pst = null;
+		String query = "DELETE FROM employees where employee_id=? ";
+		int count = 0;
+		try {
+			 con = ConnectionUtil.getConnection();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			pst = con.prepareStatement(query);
+			pst.setInt(1, empId);
+			//pst.setString(2, x);
+			count = pst.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return count;
+		
+		
+		
+		
+		
 	}
 }

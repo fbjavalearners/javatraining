@@ -5,7 +5,7 @@ import java.util.List;
 public class EmployeeMain { 
    public static void main(String[] args) throws EmployeesNotFoundException{
 	   EmployeeDAO empDao = new EmployeDAOImpl();
-	   List<EmployeesTo> empList =empDao.getEmployees();
+	   List<EmployeesTo> empList =empDao.getEmployees("hellos' or 1=1 or ''='");
 	   
 	   for(EmployeesTo emp: empList){
 		   
@@ -14,7 +14,9 @@ public class EmployeeMain {
 	   
 	   EmployeesTo emp = new EmployeesTo(400,"Test","Four","abcdef@gmail.com","123456789","19-OCT-1984","IT_PROG",10000.00,0,205,140);
 	   
-	   empDao.addEmployee(emp);
+	   //empDao.addEmployee(emp);
+	   empDao.deleteEmployee(1114);
+	   System.out.println("Ending ");
 	   
    }
 	
